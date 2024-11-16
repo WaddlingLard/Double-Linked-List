@@ -5,34 +5,34 @@
 * Brian Wu
 **************** 
 
-OVERVIEW:
+## OVERVIEW:
 
  This program is a list that is doubly-linked with nodes and implements the IndexedUnsortedList implementation.
  It has many ways to add/modify data and has a working* list iterator.
 *its a little buggy
 
-INCLUDED FILES:
+## INCLUDED FILES:
 
- * IUDoubleLinkedList.java - This file has the main bulk of code in it (source file)
- * ListTester.java - This file contains all the testing to verify the source file (well it has most of it)
- * Node.java - The Double-linked list uses nodes so this is a file for it to work that is editied to accept double-linked nodes
- * IndexedUnsortedList.java - This is the interface that the list uses
- * README - this file
+* IUDoubleLinkedList.java - This file has the main bulk of code in it (source file)
+* ListTester.java - This file contains all the testing to verify the source file (well it has most of it)
+* Node.java - The Double-linked list uses nodes so this is a file for it to work that is editied to accept double-linked nodes
+* IndexedUnsortedList.java - This is the interface that the list uses
+* README - this file
 
-COMPILING AND RUNNING:
+## COMPILING AND RUNNING:
 
  When you are in the folder with all the files for this program, compile 
  the driver(testing file) and all other java files with the command:
- $ javac *.java
+ `$ javac *.java`
  
  From that point, run the testing file for the double-linked list file
  with this command:
- $ java ListTester
+ `$ java ListTester`
 
  Console output will give the results after the program finishes.
 
 
-PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+## PROGRAM DESIGN AND IMPORTANT CONCEPTS:
 
  This program, while on first glance appears to be full of code
  and complicated algorithms, its rather simple. However, it is not complete.
@@ -61,7 +61,7 @@ PROGRAM DESIGN AND IMPORTANT CONCEPTS:
  that it is possible to my knowledge. All the advice I have for improving this program is 
  to work from the methods provided and tune them up to a 100% working state.
 
-TESTING:
+## TESTING:
 
  Testing was a hassle for me and I understand the merits of it. It's something that I
  know I need to do, but its tedious and time consuming. The good thing about testing was
@@ -72,7 +72,7 @@ TESTING:
  probably figure out. The biggest bugs/issues that remain are several methods 
  incomplete and the lack of a complete testing file.
 
-DISCUSSION:
+## DISCUSSION:
  
  Programming this whole idea, this project, was a nightmare and a well oiled machine at
  the same time. I've never seen so many things fail and succeed all at the same time. I'll
@@ -99,7 +99,7 @@ DISCUSSION:
  this grade, but I am ready to figure it out, once again. 
  
  
-EXTRA CREDIT:
+## EXTRA CREDIT:
 
  It would be nice if I did.
 
