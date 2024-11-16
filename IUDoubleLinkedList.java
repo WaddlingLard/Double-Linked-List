@@ -19,7 +19,8 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 
 	/** Creates an empty list */
 	public IUDoubleLinkedList() {
-		head = tail = null;
+		head = null;
+		tail = null;
 		size = 0;
 		modCount = 0;
 	}
@@ -287,18 +288,18 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 	 * This method goes to a specified index and changes the element to a requested value
 	 */
 	@Override
-	public void set(int index, T element) { //This method is the only method that is buggy I believe
+	public void set(int index, T element) {
 		Node<T> current = head;
 		int indexCounter = 0;
 		if(index < 0 || index >= size) {
-			if(index == size) {
+			if(index == size && index != 0) {
 				Node<T> newData = new Node<T>(element);
 				tail.setNext(newData);
 				newData.setPrevious(tail);
 				tail = newData;
 				size++;
 				modCount++;
-			}else {
+			} else {
 				throw new IndexOutOfBoundsException();
 			}
 		}
