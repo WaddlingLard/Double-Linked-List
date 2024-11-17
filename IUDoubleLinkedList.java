@@ -531,6 +531,7 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 
 		public void remove() {
 
+			
 			if(iterModCount != modCount) {
 				throw new ConcurrentModificationException();
 			}
