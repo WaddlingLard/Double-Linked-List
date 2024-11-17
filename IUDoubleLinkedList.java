@@ -54,12 +54,13 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 		if(tail != null) {
 			tail.setNext(newData);
 			newData.setPrevious(tail);
-			tail = newData;
+			tail = tail.getNext();
 		}else {
 			head = newData;
 			tail = newData;
 			// head.setNext(null); //Possibly redundant line
 		}
+
 		size++;
 		modCount++;
 	}
@@ -180,23 +181,27 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 	 */
 	@Override
 	public T removeLast() { //This is one of the key changes when switching from a single to double linked list
+		T element = null;
 		if(isEmpty()) {
 			throw new NoSuchElementException();
 		}
-		Node<T> last = tail;
+
+		element = tail.getElement();
+		
 		if(size == 1) { //If there is only uno nodo
 			head = null;
 			tail = null;
-			size--;
-			modCount++;
-			return last.getElement();
-		}else { //More than 1 element
-			tail.getPrevious().setNext(null);
-			tail = tail.getPrevious();		
+		}else { //More than 1 element'
+			Node<T> previous = tail.getPrevious();
+			previous.setNext(null);
+			tail = previous;		
 		}
+
 		size--;
 		modCount++;
-		return last.getElement();
+		// System.out.println(element.toString());
+		// System.out.println("AFTER OPERATION: " + toString());
+		return element;
 	}
 
 	/**
@@ -260,7 +265,15 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 
 		if (index == 0) { // At the head
 			removed = new Node<T>(head.getElement());
-			head = head.getNext();
+
+			if (head == tail) { // Only one element in the list
+				head = null;
+				tail = null;
+			} else {
+				head = head.getNext();
+
+			}
+
 		} else if (index == size - 1) { // At the tail
 			removed = new Node<T>(tail.getElement());
 			tail = tail.getPrevious();
@@ -339,15 +352,18 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
 	 */
 	@Override
 	public T get(int index) {
+
 		if(index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
 		}
+
 		Node<T> current = head;
 		int indexCounter = 0;
-		while(indexCounter != index) {
-			indexCounter++;
+
+		while(indexCounter++ != index) {
 			current = current.getNext();
 		}
+		
 		return current.getElement();
 	}
 

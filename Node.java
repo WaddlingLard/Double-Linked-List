@@ -98,7 +98,8 @@ public class Node<E> {
 
 	@Override
 	public String toString() {
-		return "Element: " + element.toString() + " Has next: " + (next != null);
+		// return "Element: " + element.toString() + " Has next: " + (next != null);
+		return "Element: " + element.toString();
 	}
 }
 
